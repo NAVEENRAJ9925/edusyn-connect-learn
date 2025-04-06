@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle 
 } from "@/components/ui/card";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,6 +22,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { login } = useAuth();
 
   useEffect(() => {
     // Check if user is already logged in
@@ -48,16 +50,16 @@ const Login = () => {
     // Simulate login delay
     setTimeout(() => {
       // Demo credentials check
-      if (email === "student@edusyn.com" && password === "password") {
+      if (email === "subil@2004" && password === "password") {
         const userData = {
-          name: "John Doe",
-          email: "student@edusyn.com",
+          name: "Subil",
+          email: "subil@2004",
           role: "student",
           department: "Computer Science"
         };
         
-        // Save user data to localStorage
-        localStorage.setItem("edusyn_user", JSON.stringify(userData));
+        // Save user data and update auth context
+        login(userData);
         
         toast({
           title: "Success",
@@ -68,7 +70,7 @@ const Login = () => {
       } else {
         toast({
           title: "Login Failed",
-          description: "Invalid credentials. Try student@edusyn.com / password",
+          description: "Invalid credentials. Try subil@2004 / password",
           variant: "destructive",
         });
       }
@@ -100,7 +102,7 @@ const Login = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="student@edusyn.com"
+                  placeholder="subil@2004"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="transition-all duration-200 focus:border-edusyn-400"
@@ -133,7 +135,7 @@ const Login = () => {
           </CardContent>
           <CardFooter className="flex justify-center">
             <p className="text-sm text-muted-foreground">
-              Demo credentials: student@edusyn.com / password
+              Demo credentials: subil@2004 / password
             </p>
           </CardFooter>
         </Card>
