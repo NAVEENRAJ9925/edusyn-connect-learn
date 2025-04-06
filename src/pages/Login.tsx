@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { GraduationCap, Mail, Lock, LogIn, User, BookOpen, Code } from "lucide-react";
+import { GraduationCap, Mail, Lock, LogIn, User, BookOpen, Code, BookOpenCheck, Sparkles, Brain, Rocket } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -79,44 +79,59 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-edusyn-50 via-teal-50 to-edusyn-100 p-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4 relative overflow-hidden cursor-gradient-beam">
       {/* Background decorative elements */}
-      <div className="absolute w-72 h-72 bg-teal-300 rounded-full opacity-10 -top-10 -left-10 animate-pulse"></div>
-      <div className="absolute w-80 h-80 bg-edusyn-400 rounded-full opacity-10 -bottom-20 -right-20 animate-pulse" style={{ animationDuration: '7s' }}></div>
-      <div className="absolute w-40 h-40 bg-edusyn-300 rounded-full opacity-10 top-1/4 right-10 animate-pulse" style={{ animationDuration: '10s' }}></div>
-      <div className="absolute w-60 h-60 bg-teal-400 rounded-full opacity-10 bottom-1/4 left-10 animate-pulse" style={{ animationDuration: '8s' }}></div>
+      <div className="absolute w-72 h-72 bg-edusyn-500 rounded-full opacity-5 -top-10 -left-10 animate-pulse"></div>
+      <div className="absolute w-80 h-80 bg-teal-500 rounded-full opacity-5 -bottom-20 -right-20 animate-pulse" style={{ animationDuration: '7s' }}></div>
+      <div className="absolute w-40 h-40 bg-purple-500 rounded-full opacity-5 top-1/4 right-10 animate-pulse" style={{ animationDuration: '10s' }}></div>
+      <div className="absolute w-60 h-60 bg-edusyn-600 rounded-full opacity-5 bottom-1/4 left-10 animate-pulse" style={{ animationDuration: '8s' }}></div>
+      
+      {/* Animated grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,102,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(0,102,255,0.07)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       
       {/* Floating icons */}
-      <div className="absolute text-edusyn-300 opacity-20 top-1/3 left-1/4 animate-bounce" style={{ animationDuration: '5s' }}>
-        <BookOpen size={32} />
+      <div className="absolute text-edusyn-400 opacity-20 top-1/3 left-1/4 animate-float" style={{ animationDuration: '5s' }}>
+        <BookOpen size={32} className="cursor-dot" />
       </div>
-      <div className="absolute text-teal-400 opacity-20 bottom-1/3 right-1/4 animate-bounce" style={{ animationDuration: '7s' }}>
-        <Code size={32} />
+      <div className="absolute text-teal-400 opacity-20 bottom-1/3 right-1/4 animate-float" style={{ animationDuration: '7s' }}>
+        <Code size={32} className="cursor-ring" />
       </div>
-      <div className="absolute text-edusyn-400 opacity-20 top-1/2 right-1/3 animate-bounce" style={{ animationDuration: '6s' }}>
-        <User size={32} />
+      <div className="absolute text-purple-400 opacity-20 top-1/2 right-1/3 animate-float" style={{ animationDuration: '6s' }}>
+        <User size={32} className="cursor-star" />
+      </div>
+      <div className="absolute text-emerald-400 opacity-20 bottom-2/3 left-1/3 animate-float" style={{ animationDuration: '4s' }}>
+        <BookOpenCheck size={32} className="cursor-dot" />
+      </div>
+      <div className="absolute text-rose-400 opacity-20 top-1/4 right-1/4 animate-float" style={{ animationDuration: '9s' }}>
+        <Sparkles size={32} className="cursor-ring" />
+      </div>
+      <div className="absolute text-amber-400 opacity-20 bottom-1/4 left-1/5 animate-float" style={{ animationDuration: '8s' }}>
+        <Brain size={32} className="cursor-dot" />
+      </div>
+      <div className="absolute text-sky-400 opacity-20 top-2/3 right-1/5 animate-float" style={{ animationDuration: '10s' }}>
+        <Rocket size={32} className="cursor-star" />
       </div>
       
       <div className="w-full max-w-md z-10">
         <div className="flex justify-center mb-6">
-          <div className="flex items-center gap-2 bg-white/40 p-3 rounded-full backdrop-blur-sm border border-white/50 shadow-lg transform hover:scale-105 transition-all cursor-pointer">
-            <GraduationCap className="h-8 w-8 text-edusyn-600" />
-            <span className="font-bold text-2xl text-edusyn-700">EduSyn</span>
+          <div className="flex items-center gap-2 glass-dark p-3 rounded-full shadow-lg transform hover:scale-105 transition-all cursor-dot">
+            <GraduationCap className="h-8 w-8 text-edusyn-400 animate-pulse-ring" />
+            <span className="font-bold text-2xl text-slate-200">EduSyn</span>
           </div>
         </div>
         
-        <Card className="border-edusyn-100 shadow-xl animate-fadeIn backdrop-blur-sm bg-white/80 transition-all hover:shadow-edusyn-200/30 hover:translate-y-[-2px]">
+        <Card className="neo-dark animate-fadeIn hover-glow transition-all hover:border-edusyn-400/30">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center bg-gradient-to-r from-edusyn-600 to-teal-600 bg-clip-text text-transparent">Welcome Back</CardTitle>
-            <CardDescription className="text-center">
+            <CardTitle className="text-2xl font-bold text-center gradient-text">Welcome Back</CardTitle>
+            <CardDescription className="text-center text-slate-400">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="flex items-center gap-2 text-edusyn-700">
-                  <Mail className="h-4 w-4" />
+                <Label htmlFor="email" className="flex items-center gap-2 text-slate-300">
+                  <Mail className="h-4 w-4 text-edusyn-400" />
                   Email
                 </Label>
                 <div className="relative">
@@ -126,17 +141,17 @@ const Login = () => {
                     placeholder="subil@2004"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="transition-all duration-200 focus:border-edusyn-400 pr-10 pl-4 backdrop-blur-sm bg-white/50 border-edusyn-100 focus:ring-2 focus:ring-edusyn-200"
+                    className="cursor-ring transition-all duration-200 bg-slate-800 border-slate-700 focus:border-edusyn-400 hover-border-glow text-white placeholder:text-slate-500"
                   />
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password" className="flex items-center gap-2 text-edusyn-700">
-                    <Lock className="h-4 w-4" />
+                  <Label htmlFor="password" className="flex items-center gap-2 text-slate-300">
+                    <Lock className="h-4 w-4 text-edusyn-400" />
                     Password
                   </Label>
-                  <a href="#" className="text-xs text-edusyn-500 hover:text-edusyn-600 transition-colors hover:underline">
+                  <a href="#" className="text-xs text-edusyn-400 hover:text-edusyn-300 transition-colors hover:underline cursor-dot">
                     Forgot password?
                   </a>
                 </div>
@@ -147,13 +162,13 @@ const Login = () => {
                     placeholder="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="transition-all duration-200 focus:border-edusyn-400 pr-10 pl-4 backdrop-blur-sm bg-white/50 border-edusyn-100 focus:ring-2 focus:ring-edusyn-200"
+                    className="cursor-ring transition-all duration-200 bg-slate-800 border-slate-700 focus:border-edusyn-400 hover-border-glow text-white placeholder:text-slate-500"
                   />
                 </div>
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-edusyn-500 to-teal-500 hover:from-edusyn-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg flex items-center justify-center gap-2 group" 
+                className="w-full bg-gradient-to-r from-edusyn-500 to-teal-500 hover:from-edusyn-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-edusyn-900/20 hover:shadow-lg hover:shadow-edusyn-900/30 flex items-center justify-center gap-2 group cursor-star" 
                 disabled={loading}
               >
                 {loading ? (
@@ -171,8 +186,8 @@ const Login = () => {
             </form>
           </CardContent>
           <CardFooter className="flex justify-center">
-            <p className="text-sm text-muted-foreground px-3 py-1 bg-edusyn-50/50 rounded-full border border-edusyn-100/30">
-              Demo credentials: <span className="font-semibold text-edusyn-600">subil@2004</span> / <span className="font-semibold text-teal-600">password</span>
+            <p className="text-sm text-slate-400 px-3 py-1 glass-dark rounded-full border border-slate-700/30">
+              Demo credentials: <span className="font-semibold text-edusyn-400">subil@2004</span> / <span className="font-semibold text-teal-400">password</span>
             </p>
           </CardFooter>
         </Card>

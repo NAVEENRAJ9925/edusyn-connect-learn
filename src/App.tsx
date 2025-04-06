@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import Chat from "./pages/Chat";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -26,12 +27,12 @@ const App = () => (
                 <Index />
               </ProtectedRoute>
             } />
-            {/* These routes will be implemented in the future */}
             <Route path="/chat" element={
               <ProtectedRoute>
-                <Index />
+                <Chat />
               </ProtectedRoute>
             } />
+            {/* These routes will be implemented in the future */}
             <Route path="/od-requests" element={
               <ProtectedRoute>
                 <Index />
