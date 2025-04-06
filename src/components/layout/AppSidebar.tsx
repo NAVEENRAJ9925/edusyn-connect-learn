@@ -15,6 +15,8 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link, useLocation } from "react-router-dom";
 
 // Menu items
 const menuItems = [
@@ -51,6 +53,9 @@ const menuItems = [
 ];
 
 const AppSidebar = () => {
+  const { user } = useAuth();
+  const location = useLocation();
+
   return (
     <Sidebar className="border-r border-border">
       <SidebarHeader className="p-4 flex items-center">
@@ -71,10 +76,21 @@ const AppSidebar = () => {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="flex items-center gap-3">
-                      <item.icon className="h-5 w-5" />
+                    <Link 
+                      to={item.url} 
+                      className={`flex items-center gap-3 transition-all duration-200 ${
+                        location.pathname === item.url 
+                          ? "text-edusyn-600 font-medium bg-edusyn-50" 
+                          : "hover:text-edusyn-500 hover:bg-edusyn-50"
+                      }`}
+                    >
+                      <item.icon className={`h-5 w-5 ${
+                        location.pathname === item.url
+                          ? "text-edusyn-500"
+                          : ""
+                      }`} />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -85,13 +101,15 @@ const AppSidebar = () => {
       
       <SidebarFooter className="p-4 border-t border-border">
         <div className="flex items-center gap-3">
-          <Avatar>
-            <AvatarImage src="" alt="User" />
-            <AvatarFallback>US</AvatarFallback>
+          <Avatar className="border-2 border-edusyn-100 hover:border-edusyn-300 transition-all">
+            <AvatarImage src="" alt={user?.name || "User"} />
+            <AvatarFallback>
+              {user?.name?.split(' ').map(n => n[0]).join('') || "US"}
+            </AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <span className="text-sm font-medium">User Name</span>
-            <span className="text-xs text-muted-foreground">Computer Science</span>
+            <span className="text-sm font-medium">{user?.name || "User Name"}</span>
+            <span className="text-xs text-muted-foreground">{user?.department || "Department"}</span>
           </div>
         </div>
       </SidebarFooter>

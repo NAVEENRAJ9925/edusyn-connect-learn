@@ -97,7 +97,7 @@
 
 @layer components {
   .edusyn-card {
-    @apply bg-white rounded-lg shadow-md border border-border p-4 hover:shadow-lg transition-shadow duration-200;
+    @apply bg-white rounded-lg shadow-md border border-border p-4 hover:shadow-lg transition-shadow duration-200 hover:translate-y-[-2px];
   }
   
   .edusyn-button-primary {
@@ -110,5 +110,68 @@
   
   .edusyn-button-outline {
     @apply border border-edusyn-500 text-edusyn-500 hover:bg-edusyn-50 font-medium py-2 px-4 rounded-md transition-colors;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 0.4s ease-out;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 0.4s ease-out;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
   }
 }
