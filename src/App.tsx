@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
+import Signup from "./pages/SignUp"; // ✅ New import
 import NotFound from "./pages/NotFound";
 import Chat from "./pages/Chat";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -22,6 +22,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/signUp" element={<Signup />} /> {/* ✅ Signup route added */}
             <Route path="/" element={
               <ProtectedRoute>
                 <Index />
@@ -32,7 +33,6 @@ const App = () => (
                 <Chat />
               </ProtectedRoute>
             } />
-            {/* These routes will be implemented in the future */}
             <Route path="/od-requests" element={
               <ProtectedRoute>
                 <Index />
@@ -53,7 +53,6 @@ const App = () => (
                 <Index />
               </ProtectedRoute>
             } />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

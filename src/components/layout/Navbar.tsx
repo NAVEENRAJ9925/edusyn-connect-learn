@@ -59,7 +59,7 @@ const Navbar = () => {
           
           <Avatar className="border-2 border-transparent hover:border-edusyn-300 transition-all cursor-pointer">
             <AvatarImage src="" alt={user?.name || "User"} />
-            <AvatarFallback>{user?.name?.split(' ').map(n => n[0]).join('') || "US"}</AvatarFallback>
+            <AvatarFallback>{user?.name?.split(' ').map(n => n[0]).join('') }</AvatarFallback>
           </Avatar>
         </div>
       </div>
